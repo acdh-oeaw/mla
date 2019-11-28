@@ -36,6 +36,7 @@
         },
         mounted() {
             this.load()
+            let that = this
         },
         methods: {
             load() {
@@ -55,7 +56,7 @@
         },
         computed: {
             months() {
-                moment.locale(app.locale ? (app.locale == 'de' ? 'de-AT' : app.locale) : 'de-AT')
+                moment.locale(i18n.locale ? (i18n.locale == 'de' ? 'de-AT' : i18n.locale) : 'de-AT')
                 return moment.months()
             },
             dayCount() {

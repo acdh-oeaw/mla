@@ -66,11 +66,11 @@
                         <i class="material-icons mdc-list-item__graphic" aria-hidden="true">notes</i>
                         <span class="mdc-list-item__text">{{ $t("menu.texts") }}</span>
                     </router-link>
+                    <router-link to="/about" class="mdc-list-item">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i>
+                        <span class="mdc-list-item__text">{{ $t("menu.about") }}</span>
+                    </router-link>
                 </div>
-                <div class="spacer"></div>
-                <a href="https://www.fwf.ac.at/" target="_blank"><img class="logo" src="/img/fwf.png"></a>
-                <a href="https://www.oeaw.ac.at/" target="_blank"><img class="logo" src="/img/oeaw.png"></a>
-                <a href="https://www.univie.ac.at/" target="_blank"><img class="logo" src="/img/uniwien.png"></a>
             </div>
         </aside>
         <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
@@ -101,6 +101,7 @@
     import Saint from './Saint'
     import Calendar from './Calendar'
     import Viewer from './Viewer'
+    import About from './About'
     import InfoDialog from './InfoDialog'
     import Helpers from '../mixins/Helpers.js'
     import _ from 'lodash'
@@ -120,7 +121,8 @@
                 { path: '/saint/:id', component: Saint, props: true },
                 { path: '/calendar', component: Calendar },
                 { path: '/view/:id', component: Viewer, props: true },
-                { path: '/view/:id/:page', component: Viewer, props: true }
+                { path: '/view/:id/:page', component: Viewer, props: true },
+                { path: '/about', component: About }
             ]
         }),
         components: { InfoDialog },
