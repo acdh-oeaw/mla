@@ -10,6 +10,7 @@ use Image;
 class ImageController extends Controller
 {
     public function getMonasteryImage($id) {
+        if(!file_exists(storage_path('app/monasteries'))) mkdir(storage_path('app/monasteries'));
         $img = Image::cache(function($image) use($id) {
             $image->make(storage_path('app/monasteries/'.$id))->resize(500, null, function($constraint) {
                 $constraint->aspectRatio();
@@ -19,6 +20,7 @@ class ImageController extends Controller
     }
 
     public function getCodexImage($id, $number = "0") {
+        if(!file_exists(storage_path('app/codices'))) mkdir(storage_path('app/codices'));
         if(!file_exists(storage_path('app/codices/'.$id))) mkdir(storage_path('app/codices/'.$id, 0777, true));
         if(!file_exists(storage_path('app/codices/'.$id.'/'.$number))) {
             $codex = Codex::find($id);
@@ -29,7 +31,7 @@ class ImageController extends Controller
             
             $pageNumber = str_pad(intval($number)."", 3, "0", STR_PAD_LEFT).preg_replace('/\d+/', '', $number);
             $chars = preg_replace('/\d/', '', $pageNumber);
-            if(count($chars) < 1) $pageNumber = $pageNumber.'r';
+            if(strlen($chars) < 1) $pageNumber = $pageNumber.'r';
             if(count($country_code) > 0 && count($codex_signature) > 0) {
                 $client = new Client([ 'base_uri' => 'http://manuscripta.at/images/'.$country_code[0].'/'.$codex_signature[0].'/'.$codex->codex.'/1/' ]);
                 $response = $client->request('GET', $codex->codex.'_'.($number == "0" ? 'VD' : $pageNumber).'.jpg', [ 'sink' => storage_path('app/codices/'.$id.'/'.$number) ]);
@@ -44,6 +46,7 @@ class ImageController extends Controller
     }
 
     public function dzi($id, $page) {
+        if(!file_exists(storage_path('app/cache'))) mkdir(storage_path('app/cache'));
         if(!file_exists(storage_path('app/cache/file-'.$id)) || !file_exists(storage_path('app/cache/file-'.$id.'/file-'.$id.'-'.$page))) {
             $deepzoom = \Jeremytubbs\Deepzoom\DeepzoomFactory::create([
                 'path' => storage_path('app/cache'),
