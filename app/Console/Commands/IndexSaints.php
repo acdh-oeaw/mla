@@ -39,7 +39,8 @@ class IndexSaints extends Command
     public function handle()
     {
         // https://github.com/teamtnt/tntsearch
-        
+ 
+        if(!file_exists(storage_path('app/tnt'))) mkdir(storage_path('app/tnt'));               
         $tnt = new TNTSearch;
         $tnt->loadConfig([
             'driver'    => env('DB_CONNECTION'),
@@ -51,7 +52,7 @@ class IndexSaints extends Command
             'stemmer'   => \TeamTNT\TNTSearch\Stemmer\PorterStemmer::class
         ]);
         $indexer = $tnt->createIndex('saints');
-        $indexer->query('SELECT id, Heiliger, Kalendertag, Lebensdaten, Druck, BHL, Literatur FROM Saint;');
+        $indexer->query('SELECT id, name, date FROM saints;');
         $indexer->run();
     }
 }
