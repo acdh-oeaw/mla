@@ -8,13 +8,13 @@
                 </section>
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end p-r-0 mdc-menu-surface--anchor" role="toolbar">
                     <div class="mdc-text-field mdc-text-field--no-label mdc-text-field--with-trailing-icon" id="search-bar">
-                        <input type="text" class="mdc-text-field__input" placeholder="Suchen" v-model="query" @keyup.esc="resetSearch()" @keyup.enter="search()">
+                        <input type="text" class="mdc-text-field__input" :placeholder="$t('menu.search')" v-model="query" @keyup.esc="resetSearch()" @keyup.enter="search()">
                         <i class="material-icons mdc-text-field__icon" tabindex="0" role="button" @click="toggleSearch()">close</i>
                     </div>
                     <div class="mdc-menu mdc-menu-surface" id="search-menu">
                         <ul class="mdc-list" role="menu" aria-orientation="vertical" tabindex="-1">
                             <router-link tag="li" :to="'/saint/'+result.id" class="mdc-list-item" role="menuitem" v-for="result in results" :key="result.id">
-                                <span class="mdc-list-item__text">{{ result.Heiliger }}</span>
+                                <span class="mdc-list-item__text">{{ result.name }}</span>
                             </router-link>
                             <li class="mdc-list-item" role="menuitem" v-if="results.length == 0">
                                 <span class="mdc-list-item__text">{{ $t('menu.no_results') }}</span>
@@ -87,7 +87,7 @@
     import {MDCDrawer} from "@material/drawer"
     import {MDCList} from "@material/list"
     import {MDCTextField} from '@material/textfield'
-    import {MDCMenu} from '@material/menu'
+    import {MDCMenu, DefaultFocusState} from '@material/menu'
     import {Corner} from '@material/menu-surface/constants'
     import VueRouter from 'vue-router'
     import Home from './Home'
@@ -149,6 +149,7 @@
                 that.drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'))
                 if($(window).width() < 840) that.smallScreen = true
                 that.menu = new MDCMenu(document.querySelector('#search-menu'))
+                that.menu.setDefaultFocusState(DefaultFocusState.NONE)
                 that.menu.setAnchorCorner(Corner.BOTTOM_LEFT)
                 that.menu.listen('MDCMenuSurface:opened', () => {
                     $('#search-bar').addClass('menu-open')

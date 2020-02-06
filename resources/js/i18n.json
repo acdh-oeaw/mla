@@ -11,7 +11,8 @@
             "no_results": "No results",
             "mla_long": "Magnum Legendarium Austriacum",
             "mla_short": "MLA",
-            "about": "About"
+            "about": "About",
+            "search": "Search"
         },
         "description": {  
             "1":"Admont was founded as an Eigenkloster or proprietary monastery of the archbishops of Salzburg. It was consecrated and richly endowed by Archbishop Gebehard in 1074, its possessions including the property of St. Hemma of Gurk in Upper-Styria. The first monks arrived from the Abbey of St. Peter in Salzburg. The existence of a nunnery at Admont is attested after 1120, its members drawn mainly from among the nobility of the region. The monastery became largely independent of Salzburg during the archiepiscopacy of Conrad I, son of the Babenberg margrave, Leopold III. The position of the monastery&#39;s lay advocate was occupied first by the counts of Burghausen and then, from 1169, by the Babenbergs. Alone among the monasteries associated with the MLA, Admont was situated not in the duchy of Austria but rather in that of Styria, which fell into Babenberg hands after the death of the last of the Styrian Otakars in 1192.<br> Due to the demonstrable presence of particular sources of the MLA at Admont, \u00d3 Riain has argued that it is likely to have been the place of the legendary&#39;s compilation. The Admont exemplar is, furthermore, the only one to have been copied directly from the lost original collection. A precise dating of the surviving Admont MLA manuscripts is hindered by a relative paucity of research into the scriptorium at Admont c. 1200.",
@@ -62,7 +63,7 @@
             "incexpl":"Incipit and explicit",
             "references":"References",
             "bhl": "BHL",
-            "more": "more"     
+            "more": "more"
         },
         "monasteries": {
             "AT1000": "Admont",
@@ -108,7 +109,8 @@
             "no_results": "Keine Ergebnisse",
             "mla_long": "Magnum Legendarium Austriacum",
             "mla_short": "MLA",
-            "about": "Über das Projekt"
+            "about": "Über das Projekt",
+            "search": "Suchen"
         },
         "description":  {  
             "1":"Als Eigenkloster der Salzburger Erzbisch\u00f6fe gegr\u00fcndet, weihte Erzbischof Gebhard im Jahr 1074 die Stiftung in Admont und stattete das Kloster sowohl mit dem obersteirischen Besitz der hl. Hemma von Gurk als auch mit eigenem Stiftungsgut aus. Die ersten M\u00f6nche kamen aus St. Peter in Salzburg und waren dem Erzbistum unterstellt. Ab 1120 ist auch ein Frauenkonvent nachweisbar, der zum gr\u00f6\u00dften Teil aus T\u00f6chtern des inner\u00f6sterreichischen Adels bestand. Unter Erzbischof Konrad I., einem Sohn des Babenbergers Leopold III., wurde das Stift von Salzburg gr\u00f6\u00dftenteils unabh\u00e4ngig und die Vogtei zuerst den Grafen von Burghausen und schlie\u00dflich \u2013 ab dem Jahr 1169 \u2013 den Babenbergern zuerkannt. Admont liegt als einziges der am MLA beteiligten Kl\u00f6ster nicht im Herzogtum \u00d6sterreich, sondern in der Steiermark, die nach dem Aussterben der steirischen Otakare 1192 an die Babenberger f\u00e4llt.<br> Nach \u00d3 Riain ist wegen des nachweisbaren Vorhandenseins von bestimmten Textquellen des MLA in Admont eine Entstehung des Legendars dort am wahrscheinlichsten. Ferner handelt es sich nur bei den in Admont erhaltenen Handschriften um direkte Abschriften der Ursammlung. Die Datierung der Kodizes in die zweite H\u00e4lfte des 12. Jahrhunderts ist aufgrund fehlender Forschungen zum Admonter Skriptorium noch unpr\u00e4zise.",

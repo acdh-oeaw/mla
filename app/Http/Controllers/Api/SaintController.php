@@ -22,9 +22,9 @@ class SaintController extends Controller
     public function index()
     {
         if($this->request->input('month')) {
-            return Saint::where('Kalendertag', 'like', '%'.$this->request->input('month').'.')->get();
+            return Saint::where('date', 'like', '%'.$this->request->input('month').'.')->get();
         } else if($this->request->input('char')) {
-            return Saint::where('Heiliger', 'like', strtoupper($this->request->input('char')).'%')->orWhere('Heiliger', 'like', strtolower($this->request->input('char')).'%')->orderBy('Heiliger', 'asc')->get();
+            return Saint::where('name', 'like', strtoupper($this->request->input('char')).'%')->orWhere('name', 'like', strtolower($this->request->input('char')).'%')->orderBy('name', 'asc')->get();
         } else return Saint::all();
     }
 
