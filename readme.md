@@ -45,11 +45,19 @@ php artisan migrate
 php artisan db:seed
 ```
 If you set up the database connection correctly, this will have worked without a hitch!
+Almost done. Now we need to create the search index.
+```
+php artisan saints:index
+```
 Lastly, let's generate the JavaScript and CSS files.
 ```
 npm run production
 ```
-Wait, that's it? Yes and no. If you haven't configured your webserver yet, now would be the time to do it.
+Wait, that's it? Yes and no. If you haven't configured your webserver yet, now would be the time to do it. Also, you might want to test your installation (see below).
 Other than that, you're done. If you run into problems, please follow the [Laravel Installation guide](https://laravel.com/docs/5.8/installation) or ask Google for help.
-Thank you and good night.
--mxth
+## Testing
+This repo includes a couple of simple unit tests, which check whether the API works the way it should. To test your installation, simply run the included `phpunit` script
+```
+php vendor/bin/phpunit
+```
+If everything works as it should, you are greeted by `OK (12 tests, 29 assertions)`.
