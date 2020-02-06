@@ -60,4 +60,8 @@ This repo includes a couple of simple unit tests, which check whether the API wo
 ```
 php vendor/bin/phpunit
 ```
-If everything works as it should, you are greeted by `OK (12 tests, 29 assertions)`.
+If everything works the way it is supposed to, you are greeted by this friendly message: `OK (12 tests, 29 assertions)`.
+## Troubleshooting
+In 9 out of 10 cases, errors are related to missing write permissions. This is an issue even I run into all the time.
+And that's pretty much all the advice I can give you.
+It's just you and you alone out there.
