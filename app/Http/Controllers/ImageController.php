@@ -12,7 +12,7 @@ class ImageController extends Controller
     public function getMonasteryImage($id) {
         if(!file_exists(storage_path('app/monasteries'))) mkdir(storage_path('app/monasteries'));
         $img = Image::cache(function($image) use($id) {
-            $image->make(storage_path('app/monasteries/'.$id))->resize(500, null, function($constraint) {
+            $image->make(storage_path('monasteries/'.$id))->resize(500, null, function($constraint) {
                 $constraint->aspectRatio();
             })->encode('jpg', 70);
         }, 1440, true);
