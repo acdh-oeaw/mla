@@ -13,7 +13,7 @@
             <div class="grid-item grid-item--animating column-1" :style="{ 'animation-delay': ((destroying ? 0 : i)*50)+'ms' }" v-for="(s, i) in saints">
                 <div class="mdc-card">
                     <router-link tag="div" :to="'/saint/'+s.id" class="mdc-card__primary-action card--primary">               
-                        <h2 class="card--title mdc-typography--headline6">{{ s.Heiliger }}</h2>
+                        <h2 class="card--title mdc-typography--headline6">{{ s.name }}</h2>
                         <h3 class="card--subtitle mdc-typography--subtitle2"></h3>
                     </router-link>
                 </div>

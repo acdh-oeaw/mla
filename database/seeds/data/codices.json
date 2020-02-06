@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "codex": "AT1000-25",
+    "monastery_id": 1,
+    "number": 25,
+    "manuscripta_id": 26825
+  },
+  {
+    "id": 2,
+    "codex": "AT3500-11",
+    "monastery_id": 2,
+    "number": 11,
+    "manuscripta_id": 30277
+  },
+  {
+    "id": 3,
+    "codex": "AT5400-58",
+    "monastery_id": 4,
+    "number": 58,
+    "manuscripta_id": 32269
+  },
+  {
+    "id": 4,
+    "codex": "AT6000-388",
+    "monastery_id": 5,
+    "number": 388,
+    "manuscripta_id": 8999
+  },
+  {
+    "id": 5,
+    "codex": "AT9800-13",
+    "monastery_id": 7,
+    "number": 13,
+    "manuscripta_id": 31624
+  },
+  {
+    "id": 6,
+    "codex": "AT1000-24",
+    "monastery_id": 1,
+    "number": 24,
+    "manuscripta_id": 25879
+  },
+  {
+    "id": 7,
+    "codex": "AT5400-59",
+    "monastery_id": 4,
+    "number": 59,
+    "manuscripta_id": 32270
+  },
+  {
+    "id": 8,
+    "codex": "AT6000-97",
+    "monastery_id": 5,
+    "number": 97,
+    "manuscripta_id": 36449
+  },
+  {
+    "id": 9,
+    "codex": "AT3500-12",
+    "monastery_id": 2,
+    "number": 12,
+    "manuscripta_id": 30288
+  },
+  {
+    "id": 10,
+    "codex": "AT8500-336",
+    "monastery_id": 8,
+    "number": 336,
+    "manuscripta_id": 9732
+  },
+  {
+    "id": 11,
+    "codex": "AT9800-24",
+    "monastery_id": 7,
+    "number": 24,
+    "manuscripta_id": 31635
+  },
+  {
+    "id": 12,
+    "codex": "AT6000-492",
+    "monastery_id": 5,
+    "number": 492,
+    "manuscripta_id": 36452
+  },
+  {
+    "id": 13,
+    "codex": "AT3500-13",
+    "monastery_id": 2,
+    "number": 13,
+    "manuscripta_id": 30296
+  },
+  {
+    "id": 14,
+    "codex": "AT5400-60",
+    "monastery_id": 4,
+    "number": 60,
+    "manuscripta_id": 32271
+  },
+  {
+    "id": 15,
+    "codex": "AT6000-101",
+    "monastery_id": 5,
+    "number": 101,
+    "manuscripta_id": 36451
+  },
+  {
+    "id": 16,
+    "codex": "AT6000-16",
+    "monastery_id": 5,
+    "number": 16,
+    "manuscripta_id": 36448
+  },
+  {
+    "id": 17,
+    "codex": "AT9800-14",
+    "monastery_id": 7,
+    "number": 14,
+    "manuscripta_id": 31625
+  },
+  {
+    "id": 18,
+    "codex": "AT6000-100",
+    "monastery_id": 5,
+    "number": 100,
+    "manuscripta_id": 36450
+  },
+  {
+    "id": 19,
+    "codex": "AT9800-15",
+    "monastery_id": 7,
+    "number": 15,
+    "manuscripta_id": 31626
+  },
+  {
+    "id": 20,
+    "codex": "AT3500-14",
+    "monastery_id": 2,
+    "number": 14,
+    "manuscripta_id": 30305
+  },
+  {
+    "id": 21,
+    "codex": "AT6000-546",
+    "monastery_id": 5,
+    "number": 546,
+    "manuscripta_id": 36453
+  }
+]

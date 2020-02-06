@@ -9,7 +9,7 @@
                 <h2 class="mdc-dialog__title" v-if="locale == 'de'">{{day}}. {{ month }}</h2>
                 <h2 class="mdc-dialog__title" v-else>{{ month }} {{ day }}</h2>
                 <div class="mdc-dialog__content">
-                    <router-link v-for="s in saints" :to="'/saint/'+s.id" :key="s.id">{{ s.Heiliger }}</router-link>
+                    <router-link v-for="s in saints" :to="'/saint/'+s.id" :key="s.id">{{ s.name }}</router-link>
                 </div>
                 <footer class="mdc-dialog__actions">
                     <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">

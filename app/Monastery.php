@@ -6,13 +6,9 @@ use App\Codex;
 use App\Saint;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Monastery extends Model
 {
-    use SoftDeletes;
-
-    protected $table = 'Monastery';
 
     protected $appends = ['codex_count','legend_count'];
 

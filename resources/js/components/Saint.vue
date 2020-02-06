@@ -5,30 +5,30 @@
             <div class="grid-item column-1 grid-item--animating">
                 <div class="mdc-card saint" v-if="saint">
                     <div class="card--primary">
-                        <h2 class="card--title saint--name mdc-typography--headline4">{{ saint.Heiliger }}</h2>
-                        <p class="mdc-typography--body2">{{ $t('terms.calendar_day') }}: {{ saint.Kalendertag }}</p>
+                        <h2 class="card--title saint--name mdc-typography--headline4">{{ saint.name }}</h2>
+                        <p class="mdc-typography--body2">{{ $t('terms.calendar_day') }}: {{ saint.date }}</p>
                     </div>
                     <div class="card--primary">
-                        <h3 class="card--title saint--name mdc-typography--headline6">{{ saint.Überschrift }}</h3>
+                        <h3 class="card--title saint--name mdc-typography--headline6">{{ saint.heading }}</h3>
                         <a href="#" @click.prevent="showInfo('incexpl')" class="mdc-typography--overline">{{ $t('terms.incipit') }} <i class="material-icons">info_outline</i></a>
-                        <p class="mdc-typography--body1 saint--incipit" v-html="decode(saint.Inc)"></p>
+                        <p class="mdc-typography--body1 saint--incipit" v-html="decode(saint.incipit)"></p>
                         <a href="#" @click.prevent="showInfo('incexpl')" class="mdc-typography--overline">{{ $t('terms.explicit') }} <i class="material-icons">info_outline</i></a>
-                        <p class="mdc-typography--body1 saint--explicit" v-html="decode(saint.Expl)"></p>
+                        <p class="mdc-typography--body1 saint--explicit" v-html="decode(saint.explicit)"></p>
                     </div>
-                    <div class="card--primary" v-if="saint.Textanmerkungen && saint.Textanmerkungen.trim().length > 0">
+                    <div class="card--primary" v-if="saint.comments && saint.comments.trim().length > 0">
                         <h3 class="card--title mdc-typography--headline6">{{ $t('terms.comments') }} <a href="#" @click.prevent="showInfo('comments')"><i class="material-icons">info_outline</i></a></h3>
-                        <p v-html="decode(saint.Textanmerkungen)"></p>
+                        <p v-html="decode(saint.comments)"></p>
                     </div>
-                    <div class="card--primary" v-if="saint.BHL || saint.Druck">
+                    <div class="card--primary" v-if="saint.bhl || saint.printed_editions">
                         <h3 class="card--title mdc-typography--headline6">{{ $t('terms.references') }}</h3>
                         <div class="saint--references">
-                            <div class="saint--reference" v-if="saint.BHL">
+                            <div class="saint--reference" v-if="saint.bhl">
                                 <a href="#" @click.prevent="showInfo('bhl')" class="mdc-typography--overline">{{ $t('terms.bhl') }} <i class="material-icons">info_outline</i></a>
-                                <p class="mdc-typography--body1 saint--explicit" v-html="decode(saint.BHL)"></p>
+                                <p class="mdc-typography--body1 saint--explicit" v-html="decode(saint.bhl)"></p>
                             </div>
-                            <div class="saint--reference" v-if="saint.Druck">
+                            <div class="saint--reference" v-if="saint.printed_editions">
                                 <a href="#" @click.prevent="showInfo('printed_editions')" class="mdc-typography--overline">{{ $t('terms.printed_editions') }} <i class="material-icons">info_outline</i></a>
-                                <p class="mdc-typography--body1 saint--explicit" v-html="decode(saint.Druck)"></p>
+                                <p class="mdc-typography--body1 saint--explicit" v-html="decode(saint.printed_editions)"></p>
                             </div>
                         </div>
                     </div>

@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Codex extends Model
 {
-    protected $table = 'Codex';
+    protected $table = 'codices';
 
     protected $appends = [ 'legend_count' ];
 
     public function getLegendCountAttribute() {
-        return DB::table('Entry')->where('codex_id', $this->id)->join('Saint', 'Entry.saint_id', '=', 'Saint.id')->count();
+        return DB::table('entries')->where('codex_id', $this->id)->join('saints', 'entries.saint_id', '=', 'saints.id')->count();
     }
 }

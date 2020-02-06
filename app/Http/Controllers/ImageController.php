@@ -28,6 +28,8 @@ class ImageController extends Controller
             preg_match('/[0-9]+/', $codex->codex, $codex_signature);
             
             $pageNumber = str_pad(intval($number)."", 3, "0", STR_PAD_LEFT).preg_replace('/\d+/', '', $number);
+            $chars = preg_replace('/\d/', '', $pageNumber);
+            if(count($chars) < 1) $pageNumber = $pageNumber.'r';
             if(count($country_code) > 0 && count($codex_signature) > 0) {
                 $client = new Client([ 'base_uri' => 'http://manuscripta.at/images/'.$country_code[0].'/'.$codex_signature[0].'/'.$codex->codex.'/1/' ]);
                 $response = $client->request('GET', $codex->codex.'_'.($number == "0" ? 'VD' : $pageNumber).'.jpg', [ 'sink' => storage_path('app/codices/'.$id.'/'.$number) ]);

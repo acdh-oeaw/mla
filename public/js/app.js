@@ -15756,7 +15756,7 @@ __webpack_require__.r(__webpack_exports__);
       var date = day < 10 ? '0' + day + '.' : day + '.';
       date += this.month < 10 ? '0' + this.month + '.' : this.month + '.';
       return this.saints.filter(function (s) {
-        return s.Kalendertag.trim() == date;
+        return s.date.trim() == date;
       });
     },
     showDate: function showDate(day) {
@@ -20605,7 +20605,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".entry-card button {\n  min-height: 36px;\n  height: auto;\n}", ""]);
+exports.push([module.i, ".entry-card button {\n  min-height: 36px;\n  height: auto;\n}\n.entry-card button .text-small {\n  font-size: 10px;\n}", ""]);
 
 // exports
 
@@ -95473,7 +95473,7 @@ var render = function() {
                     },
                     [
                       _c("div", { staticClass: "mdc-chip__text" }, [
-                        _vm._v(_vm._s(saint.Heiliger))
+                        _vm._v(_vm._s(saint.name))
                       ])
                     ]
                   )
@@ -95879,7 +95879,7 @@ var render = function() {
               return _c(
                 "router-link",
                 { key: s.id, attrs: { to: "/saint/" + s.id } },
-                [_vm._v(_vm._s(s.Heiliger))]
+                [_vm._v(_vm._s(s.name))]
               )
             }),
             1
@@ -97081,7 +97081,10 @@ var render = function() {
       "a",
       {
         staticClass: "mdc-card__primary-action",
-        attrs: { href: _vm.manuscriptaLink, target: "_blank" }
+        attrs: {
+          href: _vm.entry.manuscripta_link ? _vm.entry.manuscripta_link : "#",
+          target: "_blank"
+        }
       },
       [
         _c("div", {
@@ -97099,7 +97102,14 @@ var render = function() {
             [
               _c(
                 "a",
-                { attrs: { href: _vm.manuscriptaLink, target: "_blank" } },
+                {
+                  attrs: {
+                    href: _vm.entry.manuscripta_link
+                      ? _vm.entry.manuscripta_link
+                      : "#",
+                    target: "_blank"
+                  }
+                },
                 [_vm._v(_vm._s(_vm.entry.pages))]
               )
             ]
@@ -97121,9 +97131,14 @@ var render = function() {
                 attrs: { tag: "button", to: "/saint/" + _vm.saint.id }
               },
               [
-                _c("span", { staticClass: "mdc-button__label" }, [
-                  _vm._v(_vm._s(_vm.saint.Heiliger))
-                ])
+                _c(
+                  "span",
+                  {
+                    staticClass: "mdc-button__label",
+                    class: { "text-small": _vm.saint.name.length > 40 }
+                  },
+                  [_vm._v(_vm._s(_vm.saint.name))]
+                )
               ]
             )
           : _c(
@@ -98086,14 +98101,14 @@ var render = function() {
                       staticClass:
                         "card--title saint--name mdc-typography--headline4"
                     },
-                    [_vm._v(_vm._s(_vm.saint.Heiliger))]
+                    [_vm._v(_vm._s(_vm.saint.name))]
                   ),
                   _vm._v(" "),
                   _c("p", { staticClass: "mdc-typography--body2" }, [
                     _vm._v(
                       _vm._s(_vm.$t("terms.calendar_day")) +
                         ": " +
-                        _vm._s(_vm.saint.Kalendertag)
+                        _vm._s(_vm.saint.date)
                     )
                   ])
                 ]),
@@ -98105,7 +98120,7 @@ var render = function() {
                       staticClass:
                         "card--title saint--name mdc-typography--headline6"
                     },
-                    [_vm._v(_vm._s(_vm.saint.Überschrift))]
+                    [_vm._v(_vm._s(_vm.saint.heading))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -98130,7 +98145,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", {
                     staticClass: "mdc-typography--body1 saint--incipit",
-                    domProps: { innerHTML: _vm._s(_vm.decode(_vm.saint.Inc)) }
+                    domProps: {
+                      innerHTML: _vm._s(_vm.decode(_vm.saint.incipit))
+                    }
                   }),
                   _vm._v(" "),
                   _c(
@@ -98155,12 +98172,13 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", {
                     staticClass: "mdc-typography--body1 saint--explicit",
-                    domProps: { innerHTML: _vm._s(_vm.decode(_vm.saint.Expl)) }
+                    domProps: {
+                      innerHTML: _vm._s(_vm.decode(_vm.saint.explicit))
+                    }
                   })
                 ]),
                 _vm._v(" "),
-                _vm.saint.Textanmerkungen &&
-                _vm.saint.Textanmerkungen.trim().length > 0
+                _vm.saint.comments && _vm.saint.comments.trim().length > 0
                   ? _c("div", { staticClass: "card--primary" }, [
                       _c(
                         "h3",
@@ -98191,15 +98209,13 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", {
                         domProps: {
-                          innerHTML: _vm._s(
-                            _vm.decode(_vm.saint.Textanmerkungen)
-                          )
+                          innerHTML: _vm._s(_vm.decode(_vm.saint.comments))
                         }
                       })
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.saint.BHL || _vm.saint.Druck
+                _vm.saint.bhl || _vm.saint.printed_editions
                   ? _c("div", { staticClass: "card--primary" }, [
                       _c(
                         "h3",
@@ -98210,7 +98226,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "saint--references" }, [
-                        _vm.saint.BHL
+                        _vm.saint.bhl
                           ? _c("div", { staticClass: "saint--reference" }, [
                               _c(
                                 "a",
@@ -98236,13 +98252,13 @@ var render = function() {
                                 staticClass:
                                   "mdc-typography--body1 saint--explicit",
                                 domProps: {
-                                  innerHTML: _vm._s(_vm.decode(_vm.saint.BHL))
+                                  innerHTML: _vm._s(_vm.decode(_vm.saint.bhl))
                                 }
                               })
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm.saint.Druck
+                        _vm.saint.printed_editions
                           ? _c("div", { staticClass: "saint--reference" }, [
                               _c(
                                 "a",
@@ -98271,7 +98287,9 @@ var render = function() {
                                 staticClass:
                                   "mdc-typography--body1 saint--explicit",
                                 domProps: {
-                                  innerHTML: _vm._s(_vm.decode(_vm.saint.Druck))
+                                  innerHTML: _vm._s(
+                                    _vm.decode(_vm.saint.printed_editions)
+                                  )
                                 }
                               })
                             ])
@@ -98425,7 +98443,7 @@ var render = function() {
                         {
                           staticClass: "card--title mdc-typography--headline6"
                         },
-                        [_vm._v(_vm._s(s.Heiliger))]
+                        [_vm._v(_vm._s(s.name))]
                       ),
                       _vm._v(" "),
                       _c("h3", {

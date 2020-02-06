@@ -12,7 +12,7 @@
                 <div class="calendar--day" v-for="i in dayCount">
                     <span class="mdc-typography--overline calendar--day--number">{{ i }}</span>
                     <router-link tag="div" :to="'/saint/'+saint.id" class="mdc-chip" v-for="saint in getSaintsForDay(i).slice(0,3)" :key="saint.id">
-                        <div class="mdc-chip__text">{{ saint.Heiliger }}</div>
+                        <div class="mdc-chip__text">{{ saint.name }}</div>
                     </router-link>
                     <a class="mdc-typography--body2" href="#" @click.prevent="showDate(i)" v-if="getSaintsForDay(i).length > 3">{{ getSaintsForDay(i).length - 3 }} {{ $t('terms.more') }}</a>
                 </div>
@@ -48,7 +48,7 @@
             getSaintsForDay(day) {
                 let date = day < 10 ? '0'+day+'.' : day+'.'
                 date += this.month < 10 ? '0'+this.month+'.' : this.month+'.'
-                return this.saints.filter(s => { return s.Kalendertag.trim() == date })
+                return this.saints.filter(s => { return s.date.trim() == date })
             },
             showDate(day) {
                 app.$emit('show-date', day, this.months[this.month-1], this.getSaintsForDay(day))

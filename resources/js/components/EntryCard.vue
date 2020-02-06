@@ -1,15 +1,15 @@
 <template>
     <div class="mdc-card entry-card">
-        <a :href="manuscriptaLink" target="_blank" class="mdc-card__primary-action">
+        <a :href="entry.manuscripta_link ? entry.manuscripta_link : '#'" target="_blank" class="mdc-card__primary-action">
             <div class="mdc-card__media mdc-card__media--16-9" :style="{ 'background-image': 'url('+imageURL+')' }">
             </div>
             <div class="card--primary">
-                <h2 class="card--title mdc-typography mdc-typography--headline6"><a :href="manuscriptaLink" target="_blank">{{ entry.pages }}</a></h2>
+                <h2 class="card--title mdc-typography mdc-typography--headline6"><a :href="entry.manuscripta_link ? entry.manuscripta_link : '#'" target="_blank">{{ entry.pages }}</a></h2>
             </div>
         </a>
         <div class="mdc-card__actions">
             <router-link tag="button" :to="'/saint/'+saint.id" class="mdc-button mdc-card__action mdc-card__action--button" v-if="linkTo == 'saint'">
-                <span class="mdc-button__label">{{ saint.Heiliger }}</span>
+                <span class="mdc-button__label" :class="{ 'text-small': saint.name.length > 40 }">{{ saint.name }}</span>
             </router-link>
             <router-link tag="button" :to="'/codex/'+codex.id" class="mdc-button mdc-card__action mdc-card__action--button" v-else>
                 <span class="mdc-button__label">{{ $t('monasteries.'+codex.codex.split('-')[0]) }} {{ codex.number }}</span>
@@ -78,6 +78,9 @@
         button {
             min-height: 36px;
             height: auto;
+            .text-small {
+                font-size: 10px;
+            }
         }
     }
     
