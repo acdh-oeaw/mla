@@ -1,6 +1,12 @@
 # MAGNUM LEGENDARIUM AUSTRIACUM - V2
-Why a new repo? Because the whole thing was re-written from scratch. MLA is now based on Laravel 5.8, with Vue 2.6 and Material Components at its front(end). The system requirements for Laravel 5.8 can be found [here](https://laravel.com/docs/5.8#server-requirements).
+Why a new repo? Because the whole thing was re-written from scratch. MLA is now based on Laravel 5.8, with Vue 2.6 and Material Components at its front(end).
 This repo contains all the files and data needed to get the site up and running, provided your server meets the system requirements. Also, there's no database dump to manually import anymore - the data is inserted using a Seeder. More about that later.
+## System requirements
+* [Laravel 5.8 system requirements](https://laravel.com/docs/5.8#server-requirements)
+* [Intervention Image requirements](http://image.intervention.io/)
+* [TNTSearch requirements](https://github.com/teamtnt/tntsearch)
+
+Also, I assume that you have composer and npm installed globally.
 ## Installation
 Simply clone this repo into the directory of your choice, change into the cloned directory and run the following commands. 
 Make sure your webserver user has permission to write to at least the following directories (as well as their subdirectories):
@@ -30,7 +36,7 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
-Now that we're done with the annoying part, let's run some fun commands to install all the dependencies. At this point I assume that you have composer and npm installed.
+Now that we're done with the annoying part, let's run some fun commands to install all the dependencies.
 ```
 composer install
 npm install
