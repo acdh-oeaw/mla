@@ -62,11 +62,11 @@ npm run production
 Wait, that's it? Yes and no. If you haven't configured your webserver yet, now would be the time to do it. Also, you might want to test your installation (see below).
 Other than that, you're done. If you run into problems, please follow the [Laravel Installation guide](https://laravel.com/docs/5.8/installation) or ask Google for help.
 ## Testing
-This repo includes a couple of simple unit tests, which check whether the API works the way it should. To test your installation, simply run the included `phpunit` script
+This repo includes a couple of simple unit tests, which check whether the API works the way it should. To test your installation, simply run the included `phpunit` script. To run the tests successfully, your user needs to be able to write to the `storage` directory.
 ```
 php vendor/bin/phpunit
 ```
-If everything works the way it is supposed to, you are greeted by this friendly message: `OK (12 tests, 29 assertions)`.
+If everything works the way it is supposed to, you are greeted by this friendly message: `OK (16 tests, 33 assertions)`.
 ## Troubleshooting
 In 9 out of 10 cases, errors are related to missing write permissions. This is an issue even I run into all the time.
 And that's pretty much all the advice I can give you.
