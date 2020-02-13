@@ -13,7 +13,7 @@
         "guzzlehttp/guzzle": "~6.0",
         "intervention/image": "^2.4",
         "intervention/imagecache": "^2.3",
-        "jeremytubbs/deepzoom": "^0.5.7",
+        "jeremytubbs/deepzoom": "^0.6.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "teamtnt/tntsearch": "^2.1"

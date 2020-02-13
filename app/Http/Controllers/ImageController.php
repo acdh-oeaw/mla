@@ -20,6 +20,7 @@ class ImageController extends Controller
     }
 
     public function getCodexImage($id, $number = "0") {
+        if($id == 10) return response()->file(storage_path('unavailable.png'));
         if(!file_exists(storage_path('app/codices'))) mkdir(storage_path('app/codices'));
         if(!file_exists(storage_path('app/codices/'.$id))) mkdir(storage_path('app/codices/'.$id, 0777, true));
         if(!file_exists(storage_path('app/codices/'.$id.'/'.$number))) {
@@ -47,18 +48,21 @@ class ImageController extends Controller
 
     public function dzi($id, $page) {
         if(!file_exists(storage_path('app/cache'))) mkdir(storage_path('app/cache'));
-        if(!file_exists(storage_path('app/cache/file-'.$id)) || !file_exists(storage_path('app/cache/file-'.$id.'/file-'.$id.'-'.$page))) {
+        if((!file_exists(storage_path('app/cache/file-'.$id)) || !file_exists(storage_path('app/cache/file-'.$id.'/file-'.$id.'-'.$page))) && file_exists(storage_path('files/'.$id.'-'.$page.'.jpg'))) {
             $deepzoom = \Jeremytubbs\Deepzoom\DeepzoomFactory::create([
                 'path' => storage_path('app/cache'),
                 'driver' => 'imagick',
                 'format' => 'jpg',
             ]);
-            $deepzoom->makeTiles(storage_path('app/files/'.$id.'-'.$page.'.jpg'), 'file-'.$id.'-'.$page, 'file-'.$id);
+            $deepzoom->makeTiles(storage_path('files/'.$id.'-'.$page.'.jpg'), 'file-'.$id.'-'.$page, 'file-'.$id);
         }
-        return response()->download(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'.dzi'));
+        if(file_exists(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'.dzi'))) return response()->download(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'.dzi'));
+        else return response('File not found', 404);
     }
 
     public function getTile($id, $page, $folder, $image) {
-        return response()->download(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'_files/'.$folder.'/'.$image));
+        if(!file_exists(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'_files/'.$folder.'/'.$image))) $this->dzi($id, $page);
+        if(file_exists(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'_files/'.$folder.'/'.$image))) return response()->file(storage_path('app/cache/file-'.$id.'/file_'.$id.'_'.$page.'_files/'.$folder.'/'.$image));
+        else return response('File not found', 404);
     }
 }

@@ -1,12 +1,12 @@
 <template>
     <div class="mdc-card entry-card">
-        <a :href="entry.manuscripta_link ? entry.manuscripta_link : '#'" target="_blank" class="mdc-card__primary-action">
+        <component :is="entry.manuscripta_link ? 'a' : 'div'" :href="entry.manuscripta_link ? entry.manuscripta_link : '#'" target="_blank" class="mdc-card__primary-action">
             <div class="mdc-card__media mdc-card__media--16-9" :style="{ 'background-image': 'url('+imageURL+')' }">
             </div>
             <div class="card--primary">
-                <h2 class="card--title mdc-typography mdc-typography--headline6"><a :href="entry.manuscripta_link ? entry.manuscripta_link : '#'" target="_blank">{{ entry.pages }}</a></h2>
+                <h2 class="card--title mdc-typography mdc-typography--headline6"><component :is="entry.manuscripta_link ? 'a' : 'span'" :href="entry.manuscripta_link" target="_blank">{{ entry.pages }}</component></h2>
             </div>
-        </a>
+        </component>
         <div class="mdc-card__actions">
             <router-link tag="button" :to="'/saint/'+saint.id" class="mdc-button mdc-card__action mdc-card__action--button" v-if="linkTo == 'saint'">
                 <span class="mdc-button__label" :class="{ 'text-small': saint.name.length > 40 }">{{ saint.name }}</span>

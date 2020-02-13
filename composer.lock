@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50a99c4180a067b2c8d1034c8da83526",
+    "content-hash": "1d25f962c820802761b622771a3083f0",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -826,16 +826,16 @@
         },
         {
             "name": "jeremytubbs/deepzoom",
-            "version": "0.5.7",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremytubbs/deepzoom.git",
-                "reference": "4869a36f20925a36695b30c24f320d114169380e"
+                "reference": "d0f3faa97475be6abb824ca52345fd396274ffa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremytubbs/deepzoom/zipball/4869a36f20925a36695b30c24f320d114169380e",
-                "reference": "4869a36f20925a36695b30c24f320d114169380e",
+                "url": "https://api.github.com/repos/jeremytubbs/deepzoom/zipball/d0f3faa97475be6abb824ca52345fd396274ffa3",
+                "reference": "d0f3faa97475be6abb824ca52345fd396274ffa3",
                 "shasum": ""
             },
             "require": {
@@ -875,7 +875,7 @@
                 "zoom",
                 "zoomable"
             ],
-            "time": "2016-02-18T20:40:46+00:00"
+            "time": "2020-01-21T19:31:08+00:00"
         },
         {
             "name": "laravel/framework",
