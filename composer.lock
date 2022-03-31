@@ -4,49 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51bd5464d513a52be07376dc07e2ca74",
+    "content-hash": "3a7c95ff44498937d98ee88055ef7757",
     "packages": [
-        {
-            "name": "calcinai/php-imagick",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/calcinai/php-imagick.git",
-                "reference": "13846f732f9e5e08802636652fe4ca4e01ad2520"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/calcinai/php-imagick/zipball/13846f732f9e5e08802636652fe4ca4e01ad2520",
-                "reference": "13846f732f9e5e08802636652fe4ca4e01ad2520",
-                "shasum": ""
-            },
-            "suggest": {
-                "ext-imagick": "Native extension"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Imagick": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Calcinai",
-                    "email": "michael@calcin.ai"
-                }
-            ],
-            "description": "PHP wrapper for command line ImageMagick utils compatible with PECL::Imagick",
-            "support": {
-                "issues": "https://github.com/calcinai/php-imagick/issues",
-                "source": "https://github.com/calcinai/php-imagick/tree/master"
-            },
-            "time": "2021-04-22T20:26:39+00:00"
-        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
@@ -6632,17 +6591,20 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "calcinai/php-imagick": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.1.3",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-imagick": "*"
     },
     "platform-dev": {
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-imagick": "*"
     },
-    "plugin-api-version": "2.1.0"
+    "platform-overrides": {
+        "ext-imagick": "3.4.4"
+    },
+    "plugin-api-version": "2.2.0"
 }
