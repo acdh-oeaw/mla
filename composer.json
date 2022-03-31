@@ -32,7 +32,7 @@
     },
     "config": {
         "platform":{
-            "ext-imagick": "3.4.4"
+            "ext-imagick": "3.7.0"
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",

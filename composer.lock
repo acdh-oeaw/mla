@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a7c95ff44498937d98ee88055ef7757",
+    "content-hash": "d709ed355f997ecc9de9574075da5d16",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -6604,7 +6604,7 @@
         "ext-imagick": "*"
     },
     "platform-overrides": {
-        "ext-imagick": "3.4.4"
+        "ext-imagick": "3.7.0"
     },
     "plugin-api-version": "2.2.0"
 }
