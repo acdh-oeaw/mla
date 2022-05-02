@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Entry;
+use App\Models\Entry;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -39,7 +39,7 @@ class EntryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Entry  $entry
+     * @param  \App\Models\Entry  $entry
      * @return \Illuminate\Http\Response
      */
     public function show(Entry $entry)
@@ -52,7 +52,7 @@ class EntryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Entry  $entry
+     * @param  \App\Models\Entry  $entry
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Entry $entry)
@@ -63,7 +63,7 @@ class EntryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Entry  $entry
+     * @param  \App\Models\Entry  $entry
      * @return \Illuminate\Http\Response
      */
     public function destroy(Entry $entry)

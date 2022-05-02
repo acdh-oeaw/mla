@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Monastery;
+use App\Models\Monastery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,7 +32,7 @@ class MonasteryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Monastery  $monastery
+     * @param  \App\Models\Monastery  $monastery
      * @return \Illuminate\Http\Response
      */
     public function show(Monastery $monastery)
@@ -45,7 +45,7 @@ class MonasteryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Monastery  $monastery
+     * @param  \App\Models\Monastery  $monastery
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Monastery $monastery)
@@ -56,7 +56,7 @@ class MonasteryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Monastery  $monastery
+     * @param  \App\Models\Monastery  $monastery
      * @return \Illuminate\Http\Response
      */
     public function destroy(Monastery $monastery)

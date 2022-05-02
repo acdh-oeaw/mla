@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use App\Codex;
+use App\Models\Codex;
 use Image;
 
 class ImageController extends Controller

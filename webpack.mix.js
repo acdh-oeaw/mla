@@ -12,9 +12,11 @@ require('laravel-mix-polyfill');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css', {
-        includePaths: ['node_modules']
+        sassOptions: {
+            includePaths: ['node_modules']
+        }
     }).polyfill({
       enabled: true,
       useBuiltIns: "usage",

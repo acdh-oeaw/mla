@@ -71,7 +71,7 @@
     }
 </script>
 
-<style lang="scss">
+<style>
 
     .char-chips {
         margin-bottom: 20px;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Saint;
+use App\Models\Saint;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -42,7 +42,7 @@ class SaintController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Saint  $saint
+     * @param  \App\Models\Saint  $saint
      * @return \Illuminate\Http\Response
      */
     public function show(Saint $saint)
@@ -54,7 +54,7 @@ class SaintController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Saint  $saint
+     * @param  \App\Models\Saint  $saint
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Saint $saint)
@@ -65,7 +65,7 @@ class SaintController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Saint  $saint
+     * @param  \App\Models\Saint  $saint
      * @return \Illuminate\Http\Response
      */
     public function destroy(Saint $saint)

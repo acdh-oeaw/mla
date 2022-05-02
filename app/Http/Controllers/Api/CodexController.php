@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Codex;
+use App\Models\Codex;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

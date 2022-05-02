@@ -54,5 +54,7 @@ class IndexSaints extends Command
         $indexer = $tnt->createIndex('saints');
         $indexer->query('SELECT id, name, date FROM saints;');
         $indexer->run();
+
+        return 0;
     }
 }

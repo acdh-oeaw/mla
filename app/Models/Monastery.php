@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Codex;
-use App\Saint;
+use App\Models\Codex;
+use App\Models\Saint;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +26,6 @@ class Monastery extends Model
     }
 
     public function codices() {
-        return $this->hasMany('App\Codex', 'monastery_id');
+        return $this->hasMany('App\Models\Codex', 'monastery_id');
     }
 }

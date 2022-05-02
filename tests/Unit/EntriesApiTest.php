@@ -16,6 +16,6 @@ class EntriesApiTest extends TestCase
     public function testExample()
     {
         $response = $this->json('GET', '/api/entries');
-        $response->assertStatus(200)->assertJsonCount(2296)->assertJSON([[ "saint_id" => 580, "pages" => "NSr-NSv" ]]);
+        $response->assertStatus(200)->assertJsonCount(2294)->assertJSON([[ "saint_id" => 580, "pages" => "NSr-NSv" ]]);
     }
 }
