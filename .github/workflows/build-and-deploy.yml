@@ -33,13 +33,13 @@ jobs:
         uses: dfreilich/pack-action@v2.0.0
         with:
           args: 'build tmp-cnb-image --builder heroku/buildpacks:20'
-      - name: Set default port in the within image to 5000
+      - name: Suggest default port 5000 within image
         run: |
-          cat >> Dockerfile <<END  
+          cat >> Dockerfile <<EOF  
           FROM tmp-cnb-image
           ENV PORT=5000
-          EXPOSE 5000
-          END    
+          EXPOSE 5000          
+          EOF
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
