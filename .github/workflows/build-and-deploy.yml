@@ -50,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          build-args: source_image=tmp-cnb-image
+          build-args: source_image=tmp-cnb-image,default_port=5000
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
