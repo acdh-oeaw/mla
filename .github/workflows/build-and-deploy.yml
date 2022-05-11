@@ -19,7 +19,6 @@ jobs:
           cat >> Dockerfile <<END   
           FROM heroku/buildpacks:18 as builder
           COPY . /tmp/app
-          ARG BUILDPACK_URL
           ENV USER=heroku
           RUN /bin/heroku buildpack build
           
