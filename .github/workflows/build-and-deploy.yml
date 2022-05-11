@@ -2,7 +2,6 @@ name: Create image and Deploy
 
 env:
   IMAGE_TAG: mla:latest
-  BUILDPACK_URL: https://github.com/heroku/heroku-buildpack-php
 
 on:
   push:
@@ -20,7 +19,7 @@ jobs:
           cat >> Dockerfile <<END   
           FROM gliderlabs/herokuish as builder
           COPY . /tmp/app
-          ARG BUILDPACK_URL
+          ARG BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-php 
           ENV USER=herokuishuser
           RUN /bin/herokuish buildpack build
           
