@@ -29,12 +29,6 @@ jobs:
           ENV PORT=${default_port}
           EXPOSE ${default_port}
           END
-      - name: generate build instructions using pack
-        run: |        
-          docker build \
-            --build-arg source_image=tmp-cnb-image \
-            --build-arg default_port=5000 \
-            --tag "$image_tagged"
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -50,11 +44,13 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }} \
+            .        
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
+          build-args: source_image=tmp-cnb-image
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
