@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: generate build instructions using herokuish
         run: |
-          cat <<EOF > Dockerfile  
+          cat >> Dockerfile <<END   
           FROM gliderlabs/herokuish as builder
           COPY . /tmp/app
           ARG BUILDPACK_URL
@@ -29,7 +29,7 @@ jobs:
           ENV USER=herokuishuser
           EXPOSE 5000
           CMD ["/bin/herokuish", "procfile", "start", "web"]
-          EOF  
+          END  
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
