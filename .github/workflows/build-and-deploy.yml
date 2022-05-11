@@ -22,14 +22,14 @@ jobs:
           args: 'build tmp-cnb-image --builder heroku/buildpacks:20'
       - name: generate build instructions using pack
         run: |
-          cat >> Dockerfile <<END
+          cat <<EOF > Dockerfile  
           ARG source_image
           FROM ${source_image}
 
           ARG default_port
           ENV PORT=${default_port}
           EXPOSE ${default_port}
-          END 
+          EOF 
 
           docker build \
             --build-arg source_image=tmp-cnb-image \
