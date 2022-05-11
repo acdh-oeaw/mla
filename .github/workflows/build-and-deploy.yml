@@ -20,7 +20,7 @@ jobs:
         uses: dfreilich/pack-action@v2.0.0
         with:
           args: 'build tmp-cnb-image --builder heroku/buildpacks:20'
-      - name: generate build instructions using pack
+      - name: create Dockerfile
         run: |
           cat >> Dockerfile <<END  
           ARG source_image
@@ -28,8 +28,9 @@ jobs:
           ARG default_port
           ENV PORT=${default_port}
           EXPOSE ${default_port}
-        END
-
+          END
+      - name: generate build instructions using pack
+        run: |        
           docker build \
             --build-arg source_image=tmp-cnb-image \
             --build-arg default_port=5000 \
