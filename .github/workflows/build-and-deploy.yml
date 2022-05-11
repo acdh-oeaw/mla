@@ -1,7 +1,9 @@
 name: Create image and Deploy
 
 env:
-  IMAGE_TAG: mla:latest
+  image_tagged: mla:latest
+  default_port: 5000
+  source_image: tmp-cnb-image
 
 on:
   push:
@@ -14,23 +16,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: generate build instructions using herokuish
+      - name: Pack Build
+        uses: dfreilich/pack-action@v2
+        with:
+          args: 'build tmp-cnb-image --builder heroku/buildpacks:20'
+      - name: generate build instructions using pack
         run: |
-          cat >> Dockerfile <<END   
-          FROM gliderlabs/herokuish as builder
-          COPY . /tmp/app
-          ARG BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-php 
-          ENV USER=herokuishuser
-          RUN /bin/herokuish buildpack build
-          
-          FROM gliderlabs/herokuish
-          COPY --chown=herokuishuser:herokuishuser --from=builder /app /app
-          ENV PORT=5000
-          ENV USER=herokuishuser
-          EXPOSE 5000
-          CMD ["/bin/herokuish", "procfile", "start", "web"]
+          cat >> cnb.Dockerfile <<END
+          ARG source_image
+          FROM ${source_image}
 
-          # END  
+          ARG default_port
+          ENV PORT=${default_port}
+          EXPOSE ${default_port}
+          # END 
+
+          cp /build/cnb.Dockerfile Dockerfile
+          docker build \
+            --build-arg source_image=tmp-cnb-image \
+            --build-arg default_port=5000 \
+            --tag "$image_tagged"
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -53,8 +59,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            acdhch/${{ env.IMAGE_TAG }}
-            ghcr.io/acdh-oeaw/${{ env.IMAGE_TAG }}
+            acdhch/${{ env.image_tagged }}
+            ghcr.io/acdh-oeaw/${{ env.image_tagged }}
   rancher:
     needs: build_and_push_to_registry
     name: Deploy to rancher
