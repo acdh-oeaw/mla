@@ -1,9 +1,7 @@
 name: Create image and Deploy
 
 env:
-  image_tagged: mla:latest
-  default_port: 5000
-  source_image: tmp-cnb-image
+  IMAGE_TAG: mla:latest
 
 on:
   push:
@@ -23,11 +21,9 @@ jobs:
       - name: create Dockerfile
         run: |
           cat >> Dockerfile <<END  
-          ARG source_image
-          FROM ${source_image}
-          ARG default_port
-          ENV PORT=${default_port}
-          EXPOSE ${default_port}
+          FROM tmp-cnb-image
+          ENV PORT=5000
+          EXPOSE 5000
           END
 
       - name: Set up QEMU
@@ -50,12 +46,11 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          build-args: source_image=tmp-cnb-image,default_port=5000
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            acdhch/${{ env.image_tagged }}
-            ghcr.io/acdh-oeaw/${{ env.image_tagged }}
+            acdhch/${{ env.IMAGE_TAG }}
+            ghcr.io/acdh-oeaw/${{ env.IMAGE_TAG }}
   rancher:
     needs: build_and_push_to_registry
     name: Deploy to rancher
