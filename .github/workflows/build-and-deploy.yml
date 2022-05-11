@@ -10,7 +10,7 @@ on:
 
 jobs:
   build_and_push_to_registry:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -57,7 +57,7 @@ jobs:
   rancher:
     needs: build_and_push_to_registry
     name: Deploy to rancher
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Rancher Deploy Action
       run: |
