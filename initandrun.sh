@@ -1,7 +1,8 @@
 #!/bin/sh
 
-echo "Remove DATABASE_URL!"
-sed -i "s|'url' => env('DATABASE_URL'),||g" /app/config/database.php
+# Needed for deployment over the gitlab
+#echo "Remove DATABASE_URL!"
+#sed -i "s|'url' => env('DATABASE_URL'),||g" /app/config/database.php
 
 echo "Get nodejs!"
 mkdir ~/nodejs-latest
